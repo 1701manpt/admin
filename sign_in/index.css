@@ -80,7 +80,7 @@
 
 @media (max-width: 576px) {
   html {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
 
   .app-header {
@@ -92,7 +92,7 @@
 }
 @media (min-width: 576px) and (max-width: 992px) {
   html {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .app-header {

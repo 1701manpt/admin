@@ -100,10 +100,10 @@ $sp-top: 50px;
 }
 
 @media (max-width: 576px) {
-    $sp-i: 0.75px;
+    $sp-i: 0.8px;
 
     html {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
     }
 
     .app {
@@ -118,10 +118,10 @@ $sp-top: 50px;
 }
 
 @media (min-width: 576px) and (max-width: 992px) {
-    $sp-i: 0.8px;
+    $sp-i: 0.9px;
 
     html {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .app {
