@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+}
+.app-backdrop {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  background-color: #858585;
+  inset: 0;
+  top: 50px;
+}
+.app-header {
+  background-color: #474543;
+  height: 50px;
+  color: white;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+}
+.app-body {
+  position: absolute;
+  background-color: white;
+  top: 50px;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.sign_in {
+  position: absolute;
+  background-color: white;
+  padding: 32px;
+  top: 15%;
+  box-shadow: 0 0 4px 1px black;
+}
+.sign_in-backdrop {
+  position: fixed;
+  background-color: #858585;
+  inset: 0;
+  top: 50px;
+}
+.sign_in-header {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  text-align: center;
+  font-weight: bolder;
+}
+.sign_in-body {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+}
+.sign_in-body-item {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.sign_in-body-item label {
+  margin-bottom: 8px;
+}
+.sign_in-body-item input {
+  padding: 8px;
+}
+.sign_in-footer-btn {
+  padding: 8px;
+}
+.sign_in-footer-btn--primary {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.aside {
+  width: 280px;
+  background-color: #E9E9E9;
+}
+.aside-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px;
+}
+.aside-item:hover {
+  background-color: #DADADA;
+  box-shadow: -4px 0 white inset;
+}
+.aside-item--active {
+  box-shadow: 4px 0 blue inset;
+}
+.aside-item--control:hover {
+  box-shadow: unset;
+}
+.aside-item-icon {
+  font-size: 1.25rem;
+}
+.aside-item-icon i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.aside-item-icon--close {
+  display: none;
+}
+.aside-item-title {
+  margin-left: 16px;
+}
+.aside-item-title--hidden {
+  display: none;
+}
+
+.main {
+  background-color: #DADADA;
+  width: calc(100% - 280px);
+  padding: 16px 32px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 0.8rem;
+  }
+
+  .app-header {
+    font-size: 1.5rem;
+  }
+
+  .aside {
+    position: fixed;
+    z-index: 2;
+    inset: 0;
+    transform: translateX(-100%);
+  }
+  .aside--active {
+    transform: translateX(0%);
+  }
+  .aside-item--control {
+    float: right;
+    width: fit-content;
+  }
+  .aside-item-icon--open {
+    display: none;
+  }
+  .aside-item-icon--close {
+    display: block;
+  }
+  .aside + .main {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
