@@ -21,11 +21,10 @@
   background-color: #474543;
   height: 50px;
   color: white;
-  font-size: 1.25rem;
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  padding: 0 32px;
+  padding-left: 16px;
 }
 .app-body {
   position: absolute;
@@ -86,6 +85,9 @@
   width: 280px;
   background-color: #E9E9E9;
 }
+.aside-icon {
+  display: none;
+}
 .aside-item {
   display: flex;
   align-items: center;
@@ -127,19 +129,21 @@
 }
 
 @media (max-width: 768px) {
-  html {
-    font-size: 0.8rem;
-  }
-
-  .app-header {
-    font-size: 1.5rem;
-  }
-
   .aside {
     position: fixed;
     z-index: 2;
     inset: 0;
     transform: translateX(-100%);
+  }
+  .aside-icon {
+    display: flex;
+    color: white;
+    font-size: 1.5rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 16px;
   }
   .aside--active {
     transform: translateX(0%);
@@ -147,6 +151,9 @@
   .aside-item--control {
     float: right;
     width: fit-content;
+  }
+  .aside-item--control i {
+    font-size: 1.5rem;
   }
   .aside-item-icon--open {
     display: none;

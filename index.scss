@@ -30,11 +30,10 @@ $sp-top: 50px;
         background-color: #474543;
         height: $sp-top;
         color: white;
-        font-size: 1.25rem;
         text-transform: uppercase;
         display: flex;
         align-items: center;
-        padding: 0 $sp-32;
+        padding-left: 16px;
     }
 
     &-body {
@@ -76,22 +75,27 @@ $sp-top: 50px;
         margin-bottom: $sp-32;
         display: flex;
         flex-direction: column;
+
         &-item {
             margin-bottom: 16px;
             display: flex;
             flex-direction: column;
+
             & label {
                 margin-bottom: 8px;
             }
+
             & input {
                 padding: 8px;
             }
 
         }
     }
+
     &-footer {
         &-btn {
             padding: 8px;
+
             &--primary {
                 width: 100%;
                 margin-bottom: 16px;
@@ -105,6 +109,10 @@ $sp-aside: 280px;
 .aside {
     width: $sp-aside;
     background-color: #E9E9E9;
+
+    &-icon {
+        display: none;
+    }
 
     &-item {
         display: flex;
@@ -158,21 +166,23 @@ $sp-aside: 280px;
 }
 
 @media (max-width: 768px) {
-    html {
-        font-size: 0.8rem;
-    }
-
-    .app {
-        &-header {
-            font-size: 1.5rem;
-        }
-    }
 
     .aside {
         position: fixed;
         z-index: 2;
         inset: 0;
         transform: translateX(-100%);
+
+        &-icon {
+            display: flex;
+            color: white;
+            font-size: 1.5rem;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 16px;
+        }
 
         &--active {
             transform: translateX(0%);
@@ -182,6 +192,9 @@ $sp-aside: 280px;
             &--control {
                 float: right;
                 width: fit-content;
+                & i {
+                    font-size: 1.5rem;
+                }
             }
 
             &-icon {
