@@ -150,8 +150,9 @@
   float: right;
 }
 .item-control-btn {
-  padding: 4px;
-  margin-left: 8px;
+  padding: 4px 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
   border: none;
   border-radius: 4px;
   width: 80px;
@@ -177,7 +178,7 @@ table {
 }
 table th, table td {
   border: solid 1px black;
-  padding: 8px;
+  padding: 4px;
   text-align: center;
 }
 
