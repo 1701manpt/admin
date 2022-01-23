@@ -126,7 +126,6 @@
   background-color: #DADADA;
   min-width: calc(100vw - 280px);
   min-height: calc(100vh - 50px);
-  padding: 16px 32px;
   overflow: auto;
   padding: 16px;
 }
