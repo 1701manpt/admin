@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="http://nghiquan.shop/favicon.ico" type="image/x-icon">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="app">
+        <div class="app-backdrop"></div>
+        <div class="app-header">
+            <div class="aside-icon js-open-menu">
+                <i class="bi bi-list"></i>
+            </div>
+            <p>Nghị Quân Shop Admin Center</p>
+        </div>
+        <div class="app-body">
+            <div class="aside">
+                <div class="aside-item aside-item--control">
+                    <div class="aside-item-icon aside-item-icon--open">
+                        <i class="bi bi-list"></i>
+                    </div>
+                    <div class="aside-item-icon aside-item-icon--close js-close-menu">
+                        <i class="bi bi-x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="main-item">
+                    <div class="item-title">Quản lý khách hàng</div>
+                    <div class="item-control">
+                        <button class="item-control-btn item-control-btn--primary js-create-btn">Thêm</button>
+                        <button class="item-control-btn item-control-btn--secondary">Sửa</button>
+                        <button class="item-control-btn item-control-btn--danger">Xóa</button>
+                    </div>
+                    <div class="item-content">
+                        <table class="js-table--customer">
+                            <tr>
+                                <th>STT</th>
+                                <th>ID</th>
+                                <th>Họ và tên</th>
+                                <th>Giới tính</th>
+                                <th>Ngày sinh</th>
+                                <th>Địa chỉ</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>Ngày tạo</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal modal--customer">
+                <div class="modal-icon-close js-close-btn">
+                    <i class="bi bi-x"></i>
+                </div>
+                <div class="modal-header">Thêm khách hàng</div>
+                <div class="modal-body">
+                    <div class="modal-body-item">
+                        <label for="">Họ và tên</label>
+                        <input type="text" placeholder="Nhập họ và tên">
+                    </div>
+                    <div class="modal-body-item">
+                        <label for="">Giới tính</label>
+                        <select name="gender" id="gender">
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                        </select>
+                    </div>
+                    <div class="modal-body-item">
+                        <label for="">Ngày sinh</label>
+                        <input type="date">
+                    </div>
+                    <div class="modal-body-item">
+                        <label for="">Địa chỉ</label>
+                        <textarea name="address" id="address" cols="" rows="2"></textarea>
+                    </div>
+                    <div class="modal-body-item">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Nhập email">
+                    </div>
+                    <div class="modal-body-item">
+                        <label for="">Mật khẩu</label>
+                        <input type="password" id="password" name="password" placeholder="Nhập mật khẩu">
+                    </div>
+                    <div class="modal-body-item">
+                        <label for="reassword">Nhập lại mật khẩu</label>
+                        <input type="password" id="reassword" name="repassword" placeholder="Nhập mật khẩu">
+                    </div>
+                    <div class="modal-body-item">
+                        <label for="">Ngày lập</label>
+                        <input type="date" id="date_create" name="date_create" value="2022-01-20" readonly>
+                    </div>
+                    <div class="modal-body-item">
+                        <label for="state">Trạng thái</label>
+                        <select name="state" id="state" required>
+                            <option value="normal">Normal</option>
+                            <option value="locked">Locked</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="modal-footer-btn modal-footer-btn--primary">Tạo</button>
+                    <button class="modal-footer-btn js-close-btn">Đóng</button>
+                    <button class="modal-footer-btn">Tải lại</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

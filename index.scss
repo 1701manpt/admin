@@ -171,8 +171,9 @@ $sp-aside: 280px;
         margin-bottom: 16px;
         padding: 16px;
         min-height: 240px;
-        min-width: 100%;
         box-shadow: 0 0 4px 1px #858585;
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -186,7 +187,6 @@ $sp-aside: 280px;
 
     &-control {
         margin-bottom: 8px;
-        float: right;
 
         &-btn {
             padding: 4px 8px;
@@ -215,6 +215,7 @@ $sp-aside: 280px;
 
     &-content {
         margin-bottom: 8px;
+        overflow-x: auto;
     }
 }
 
@@ -226,6 +227,80 @@ table {
         border: solid 1px black;
         padding: 4px;
         text-align: center;
+    }
+}
+
+.modal {
+    position: fixed;
+    top: $sp-top;
+    right: 0;
+    bottom: 0;
+    width: 768px;
+    background-color: white;
+    padding: $sp-32;
+    overflow-y: auto;
+    transform: translateX(100%);
+
+    &--active {
+        box-shadow: 0 0 $sp-4 1px black;
+        transform: translateX(0%);
+    }
+
+    &-icon-close {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: $sp-8;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.125);
+        }
+
+        & i {
+            font-size: 1.5rem;
+        }
+    }
+
+    &-header {
+        text-transform: uppercase;
+        margin-bottom: $sp-16;
+        text-align: center;
+        font-weight: bolder;
+    }
+
+    &-body {
+        margin-bottom: $sp-16;
+        display: flex;
+        flex-direction: column;
+
+        &-item {
+            margin-bottom: $sp-8;
+            display: flex;
+            flex-direction: column;
+
+            & label {
+                margin-bottom: 8px;
+            }
+
+            & input,
+            & select,
+            & textarea {
+                padding: 8px;
+            }
+
+        }
+    }
+
+    &-footer {
+        &-btn {
+            padding: 8px;
+            margin-right: 8px;
+
+            &--primary {
+                width: 100%;
+                margin-bottom: 16px;
+            }
+        }
     }
 }
 
@@ -277,6 +352,28 @@ table {
 
         &+.main {
             width: 100%;
+        }
+    }
+
+    .main {
+        padding: 0;
+        &-item {
+            min-height: calc(100vh - $sp-top);
+        }
+    }
+
+    .modal {
+        width: 100%;
+        background-color: white;
+        padding: $sp-8;
+
+        &-icon-close {
+            padding: $sp-4;
+        }
+        &-footer {
+            &-btn {
+                padding: $sp-4;
+            }
         }
     }
 }
