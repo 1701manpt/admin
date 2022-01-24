@@ -233,6 +233,24 @@
             title: "Khách hàng",
         },
         {
+            href: "staff",
+            titleUrl: "Staff",
+            icon: '<i class="bi bi-person-lines-fill"></i>',
+            title: "Nhân viên",
+        },
+        {
+            href: "category",
+            titleUrl: "Category",
+            icon: '<i class="bi bi-bookmarks"></i>',
+            title: "Danh mục sản phẩm",
+        },
+        {
+            href: "type",
+            titleUrl: "Type",
+            icon: '<i class="bi bi-list-columns"></i>',
+            title: "Loại sản phẩm",
+        },
+        {
             href: "product",
             titleUrl: "Product",
             icon: '<i class="bi bi-bucket"></i>',
@@ -241,7 +259,7 @@
         {
             href: "order",
             titleUrl: "Order",
-            icon: '<i class="bi bi-cart-check"></i>',
+            icon: '<i class="bi bi-cart"></i>',
             title: "Đơn hàng",
         },
         {
@@ -250,6 +268,19 @@
             icon: '<i class="bi bi-receipt"></i>',
             title: "Giảm giá",
         },
+        {
+            href: "supplier",
+            titleUrl: "Supplier",
+            icon: '<i class="bi bi-shop"></i>',
+            title: "Nhà cung cấp",
+        },
+        {
+            href: "role",
+            titleUrl: "Role",
+            icon: '<i class="bi bi-person-circle"></i>',
+            title: "Phân quyền tài khoản",
+        },
+
     ]
     function createItem(href, titleUrl, icon, title) {
         const a = document.createElement("a")
