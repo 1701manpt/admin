@@ -1,222 +1,293 @@
-(function customer() {
-    const customers = [
-        {
-            id: 1,
-            name: "Thái Phương Nam",
-            gender: "Nam",
-            birth_date: "2001-07-10",
-            address: "Bình Định",
-            email: "thaiphuongnam1071@gmail.com",
-            password: null,
-            date_create: "2001-07-10",
-            state: "normal",
-        },
-        {
-            id: 2,
-            name: "TdfwefNam",
-            gender: "Nam",
-            birth_date: "2001-07-10",
-            address: "Bình Định",
-            email: "thaiphuongnam1071@gmail.com",
-            password: null,
-            date_create: "2001-07-10",
-            state: "normal",
-        },
-        {
-            id: 3,
-            name: "Tccc",
-            gender: "Nam",
-            birth_date: "2001-07-10",
-            address: "Bình Định",
-            email: "thaiphuongnam1071@gmail.com",
-            password: null,
-            date_create: "2001-07-10",
-            state: "normal",
-        }
-    ]
-    function loadTable() {
-        customers.forEach((item, index) => {
-            createRow(item, index + 1)
-        })
-    }
-    function createRow(obj, index = null) {
-        const row = document.createElement("tr")
-        row.setAttribute("id", "customer" + obj.id)
-        const checkbox = document.createElement("td")
-        checkbox.innerHTML = "<input type='checkbox' id=remove" + obj.id + " name='remove'/>"
-        row.appendChild(checkbox)
-        stt = document.createElement("td")
-        stt.innerText = index
-        row.appendChild(stt)
-        Object.keys(obj).forEach((key) => {
-            const cell = document.createElement("td")
-            cell.innerText = obj[key]
-            row.appendChild(cell)
-        })
-        const edit = document.createElement("td")
-        edit.innerHTML = '<i class="bi bi-pencil-square js-edit-btn" id=edit' + obj.id + '></i>'
-        row.appendChild(edit)
-        const table = document.querySelector(".js-table-customer")
-        table.appendChild(row)
-    }
-    function handleCreate() {
-        const create = document.querySelector(".js-create")
-        const form = document.getElementsByClassName("js-create-form")[0]
-        form.addEventListener("submit", (e) => {
-            e.preventDefault()
-        })
-        create.addEventListener("click", () => {
-            const data = new FormData(form)
-            const obj = Object.fromEntries(data)
-            createRow(obj)
-            alert("Thành công!!!")
-        })
-    }
-    function removeRow(id) {
-        const table = document.querySelector(".js-table-customer")
-        const row = table.querySelector("#customer" + id)
-        table.removeChild(row)
-    }
-    function removeRows(arr) {
-        arr.forEach((id) => {
-            removeRow(id)
-        })
-    }
-    function handleRemove() {
-        const removeBtn = document.querySelector(".js-remove-btn")
-        removeBtn.addEventListener("click", () => {
-            const removeArr = document.querySelectorAll("input[name='remove']")
-            var data = []
-            removeArr.forEach((checkbox) => {
-                if (checkbox.checked == true) {
-                    data.push(checkbox.id.slice(6))
-                }
-            })
-            removeRows(data)
-            data = []
-            alert("Thành công!!!")
-        })
-    }
-    function updateRow(obj) {
-        const table = document.querySelector(".js-table-customer")
-        const row = table.querySelector("#customer" + obj.id)
-        const cells = row.childNodes;
-        const arr = [...Object.values(obj)]
-        cells.forEach((cell, index) => {
-            if (index >= 2 && index < cells.length - 1) {
-                cell.innerText = arr[index - 2]
-            }
-        })
-    }
-    function loadRowToForm() {
-        const form = document.querySelector(".js-edit-form")
-        const data = new FormData(form)
-        const obj = Object.fromEntries(data)
-        const load = document.querySelectorAll(".js-edit-btn")
-        load.forEach((item, index) => {
-            item.addEventListener("click", () => {
-                customers.forEach((customer, index) => {
-                    if ("edit" + customer.id == item.id) {
-                        // form.querySelector("[name='id']").value = customer.id
-                        // form.querySelector("[name='name']").value = customer.name
-                        // form.querySelector("[name='gender']").value = customer.gender
-                        // form.querySelector("[name='birth_date']").value = customer.birth_date
-                        // form.querySelector("[name='address']").value = customer.address
-                        // form.querySelector("[name='email']").value = customer.email
-                        // form.querySelector("[name='password']").value = customer.password
-                        // form.querySelector("[name='date_create']").value = customer.date_create
-                        // form.querySelector("[name='state']").value = customer.state
-                        Object.keys(customer).forEach((key, index) => {
-                            form.querySelector("[name=" + key + "]").value = Object.values(customer)[index]
-                        })
-                    }
-                })
-            })
-        })
-    }
-    function handleUpdate() {
-        const form = document.querySelector(".js-edit-form")
-        const update = form.querySelector(".js-update-btn")
-        form.addEventListener("submit", (e) => {
-            e.preventDefault()
-        })
-        update.addEventListener("click", () => {
-            const data = new FormData(form)
-            const obj = Object.fromEntries(data)
-            updateRow(obj)
-            alert("Thành công!!!")
-        })
-    }
-    window.addEventListener("load", () => {
-        loadTable()
-        handleRemove()
-        handleCreate()
-        loadRowToForm()
-        handleUpdate()
-    })
-})();
+// (function customer() {
+//     const customers = [
+//         {
+//             id: 1,
+//             name: "Thái Phương Nam",
+//             gender: "Nam",
+//             birth_date: "2001-07-10",
+//             address: "Bình Định",
+//             email: "thaiphuongnam1071@gmail.com",
+//             password: null,
+//             date_create: "2001-07-10",
+//             state: "normal",
+//         },
+//         {
+//             id: 2,
+//             name: "TdfwefNam",
+//             gender: "Nam",
+//             birth_date: "2001-07-10",
+//             address: "Bình Định",
+//             email: "thaiphuongnam1071@gmail.com",
+//             password: null,
+//             date_create: "2001-07-10",
+//             state: "normal",
+//         },
+//         {
+//             id: 3,
+//             name: "Tccc",
+//             gender: "Nam",
+//             birth_date: "2001-07-10",
+//             address: "Bình Định",
+//             email: "thaiphuongnam1071@gmail.com",
+//             password: null,
+//             date_create: "2001-07-10",
+//             state: "normal",
+//         }
+//     ]
 
-(function order() {
-    const orders = [
-        {
-            id: 1,
-            customer_id: 24,
-            receive_number_phone: "0337948940",
-            address: "Bình Định",
-            description: "Đưa vào giờ hành chính nhé",
-            date_start: "2001-07-10",
-            date_end: "2001-07-10",
-            state: "Chưa giao",
-        },
-        {
-            id: 1,
-            customer_id: 24,
-            receive_number_phone: "0337948940",
-            address: "Bình Định",
-            description: "Đưa vào giờ hành chính nhé",
-            date_start: "2001-07-10",
-            date_end: "2001-07-10",
-            state: "Chưa giao",
-        },
-        {
-            id: 1,
-            customer_id: 24,
-            receive_number_phone: "0337948940",
-            address: "Bình Định",
-            description: "Đưa vào giờ hành chính nhé",
-            date_start: "2001-07-10",
-            date_end: "2001-07-10",
-            state: "Chưa giao",
-        },
-    ]
-    function createRow(obj, index = null) {
-        const row = document.createElement("tr")
-        const stt = document.createElement("td")
-        stt.innerText = index
-        row.appendChild(stt)
-        Object.keys(obj).forEach((key) => {
-            const cell = document.createElement("td")
-            cell.innerText = obj[key]
-            row.appendChild(cell)
-        })
-        const table = document.querySelector(".js-table--order")
-        table.appendChild(row)
-    }
-    function deleteRow(id) {
+//     function loadTable() {
+//         customers.forEach((item, index) => {
+//             createRow(item, index + 1)
+//         })
+//     }
+//     function createRow(obj, index = null) {
+//         const row = document.createElement("tr")
+//         row.setAttribute("id", "customer" + obj.id)
+//         const checkbox = document.createElement("td")
+//         checkbox.innerHTML = "<input type='checkbox' id=remove" + obj.id + " name='remove'/>"
+//         row.appendChild(checkbox)
+//         stt = document.createElement("td")
+//         stt.innerText = index
+//         row.appendChild(stt)
+//         Object.keys(obj).forEach((key) => {
+//             const cell = document.createElement("td")
+//             cell.innerText = obj[key]
+//             row.appendChild(cell)
+//         })
+//         const edit = document.createElement("td")
+//         edit.innerHTML = '<i class="bi bi-pencil-square js-edit-btn" id=edit' + obj.id + '></i>'
+//         row.appendChild(edit)
+//         const table = document.querySelector(".js-table-customer")
+//         table.appendChild(row)
+//     }
+//     function handleCreate() {
+//         const create = document.querySelector(".js-create")
+//         const form = document.getElementsByClassName("js-create-form")[0]
+//         form.addEventListener("submit", (e) => {
+//             e.preventDefault()
+//         })
+//         create.addEventListener("click", () => {
+//             const data = new FormData(form)
+//             const obj = Object.fromEntries(data)
+//             createRow(obj)
+//             alert("Thành công!!!")
+//         })
+//     }
+//     function removeRow(id) {
+//         const table = document.querySelector(".js-table-customer")
+//         const row = table.querySelector("#customer" + id)
+//         table.removeChild(row)
+//     }
+//     function removeRows(arr) {
+//         arr.forEach((id) => {
+//             removeRow(id)
+//         })
+//     }
+//     function handleRemove() {
+//         const removeBtn = document.querySelector(".js-remove-btn")
+//         removeBtn.addEventListener("click", () => {
+//             const removeArr = document.querySelectorAll("input[name='remove']")
+//             var data = []
+//             removeArr.forEach((checkbox) => {
+//                 if (checkbox.checked == true) {
+//                     data.push(checkbox.id.slice(6))
+//                 }
+//             })
+//             removeRows(data)
+//             data = []
+//             alert("Thành công!!!")
+//         })
+//     }
+//     function updateRow(obj) {
+//         const table = document.querySelector(".js-table-customer")
+//         const row = table.querySelector("#customer" + obj.id)
+//         const cells = row.childNodes;
+//         const arr = [...Object.values(obj)]
+//         cells.forEach((cell, index) => {
+//             if (index >= 2 && index < cells.length - 1) {
+//                 cell.innerText = arr[index - 2]
+//             }
+//         })
+//     }
+//     function loadRowToForm() {
+//         const form = document.querySelector(".js-edit-form")
+//         const data = new FormData(form)
+//         const obj = Object.fromEntries(data)
+//         const load = document.querySelectorAll(".js-edit-btn")
+//         load.forEach((item, index) => {
+//             item.addEventListener("click", () => {
+//                 customers.forEach((customer, index) => {
+//                     if ("edit" + customer.id == item.id) {
+//                         // form.querySelector("[name='id']").value = customer.id
+//                         // form.querySelector("[name='name']").value = customer.name
+//                         // form.querySelector("[name='gender']").value = customer.gender
+//                         // form.querySelector("[name='birth_date']").value = customer.birth_date
+//                         // form.querySelector("[name='address']").value = customer.address
+//                         // form.querySelector("[name='email']").value = customer.email
+//                         // form.querySelector("[name='password']").value = customer.password
+//                         // form.querySelector("[name='date_create']").value = customer.date_create
+//                         // form.querySelector("[name='state']").value = customer.state
+//                         Object.keys(customer).forEach((key, index) => {
+//                             form.querySelector("[name=" + key + "]").value = Object.values(customer)[index]
+//                         })
+//                     }
+//                 })
+//             })
+//         })
+//     }
+//     function handleUpdate() {
+//         const form = document.querySelector(".js-edit-form")
+//         const update = form.querySelector(".js-update-btn")
+//         form.addEventListener("submit", (e) => {
+//             e.preventDefault()
+//         })
+//         update.addEventListener("click", () => {
+//             const data = new FormData(form)
+//             const obj = Object.fromEntries(data)
+//             updateRow(obj)
+//             alert("Thành công!!!")
+//         })
+//     }
+//     window.addEventListener("load", () => {
+//         loadTable()
+//         handleRemove()
+//         handleCreate()
+//         loadRowToForm()
+//         handleUpdate()
+//     })
+// })();
 
-    }
-    function handleCreateRow() {
+// (function order() {
+//     const orders = [
+//         {
+//             id: 1,
+//             customer_id: 24,
+//             receive_number_phone: "0337948940",
+//             address: "Bình Định",
+//             description: "Đưa vào giờ hành chính nhé",
+//             date_start: "2001-07-10",
+//             date_end: "2001-07-10",
+//             state: "Chưa giao",
+//         },
+//         {
+//             id: 1,
+//             customer_id: 24,
+//             receive_number_phone: "0337948940",
+//             address: "Bình Định",
+//             description: "Đưa vào giờ hành chính nhé",
+//             date_start: "2001-07-10",
+//             date_end: "2001-07-10",
+//             state: "Chưa giao",
+//         },
+//         {
+//             id: 1,
+//             customer_id: 24,
+//             receive_number_phone: "0337948940",
+//             address: "Bình Định",
+//             description: "Đưa vào giờ hành chính nhé",
+//             date_start: "2001-07-10",
+//             date_end: "2001-07-10",
+//             state: "Chưa giao",
+//         },
+//         {
+//             id: 1,
+//             customer_id: 24,
+//             receive_number_phone: "0337948940",
+//             address: "Bình Định",
+//             description: "Đưa vào giờ hành chính nhé",
+//             date_start: "2001-07-10",
+//             date_end: "2001-07-10",
+//             state: "Chưa giao",
+//         },
+//         {
+//             id: 1,
+//             customer_id: 24,
+//             receive_number_phone: "0337948940",
+//             address: "Bình Định",
+//             description: "Đưa vào giờ hành chính nhé",
+//             date_start: "2001-07-10",
+//             date_end: "2001-07-10",
+//             state: "Chưa giao",
+//         },
+//         {
+//             id: 1,
+//             customer_id: 24,
+//             receive_number_phone: "0337948940",
+//             address: "Bình Định",
+//             description: "Đưa vào giờ hành chính nhé",
+//             date_start: "2001-07-10",
+//             date_end: "2001-07-10",
+//             state: "Chưa giao",
+//         },
+//         {
+//             id: 1,
+//             customer_id: 24,
+//             receive_number_phone: "0337948940",
+//             address: "Bình Định",
+//             description: "Đưa vào giờ hành chính nhé",
+//             date_start: "2001-07-10",
+//             date_end: "2001-07-10",
+//             state: "Chưa giao",
+//         },
+//         {
+//             id: 1,
+//             customer_id: 24,
+//             receive_number_phone: "0337948940",
+//             address: "Bình Định",
+//             description: "Đưa vào giờ hành chính nhé",
+//             date_start: "2001-07-10",
+//             date_end: "2001-07-10",
+//             state: "Chưa giao",
+//         },
+//         {
+//             id: 1,
+//             customer_id: 24,
+//             receive_number_phone: "0337948940",
+//             address: "Bình Định",
+//             description: "Đưa vào giờ hành chính nhé",
+//             date_start: "2001-07-10",
+//             date_end: "2001-07-10",
+//             state: "Chưa giao",
+//         },
+//         {
+//             id: 1,
+//             customer_id: 24,
+//             receive_number_phone: "0337948940",
+//             address: "Bình Định",
+//             description: "Đưa vào giờ hành chính nhé",
+//             date_start: "2001-07-10",
+//             date_end: "2001-07-10",
+//             state: "Chưa giao",
+//         },
+//     ]
+//     function createRow(obj, index = null) {
+//         const row = document.createElement("tr")
+//         const stt = document.createElement("td")
+//         stt.innerText = index
+//         row.appendChild(stt)
+//         Object.keys(obj).forEach((key) => {
+//             const cell = document.createElement("td")
+//             cell.innerText = obj[key]
+//             row.appendChild(cell)
+//         })
+//         const table = document.querySelector(".js-table--order")
+//         table.appendChild(row)
+//     }
+//     function deleteRow(id) {
 
-    }
-    function loadTable(orders) {
-        orders.forEach((order, index) => {
-            createRow(order, index + 1)
-        })
-    }
-    window.addEventListener("load", () => {
-        loadTable(orders)
-    })
-})();
+//     }
+//     function handleCreateRow() {
+
+//     }
+//     function loadTable(orders) {
+//         orders.forEach((order, index) => {
+//             createRow(order, index + 1)
+//         })
+//     }
+//     window.addEventListener("load", () => {
+//         loadTable(orders)
+//     })
+// })();
 
 (function aside() {
     const items = [
@@ -383,10 +454,14 @@
         })
     })
 })();
-window.addEventListener("load", () => {
-    const link = document.createElement("link")
-    link.setAttribute("rel", "shortcut icon")
-    link.setAttribute("href", "./favicon.ico")
-    link.setAttribute("type", "image/x-icon")
-    document.head.appendChild(link)
-})
+
+(function iconUrl() {
+    window.addEventListener("load", () => {
+        const link = document.createElement("link")
+        link.setAttribute("rel", "shortcut icon")
+        link.setAttribute("href", "./favicon.ico")
+        link.setAttribute("type", "image/x-icon")
+        document.head.appendChild(link)
+    })
+})();
+

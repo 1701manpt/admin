@@ -101,7 +101,8 @@
   box-shadow: -4px 0 white inset;
 }
 .aside-item--active {
-  border-left: 4px solid blue;
+  border-left: 4px solid black;
+  background-color: white;
 }
 .aside-item--control:hover {
   box-shadow: unset;

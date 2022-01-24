@@ -128,8 +128,8 @@ $sp-aside: 280px;
         }
 
         &--active {
-            // box-shadow: $sp-4 0 blue inset;
-            border-left: 4px solid blue;
+            border-left: 4px solid black;
+            background-color: white;
         }
 
         &--control {
