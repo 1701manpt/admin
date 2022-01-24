@@ -86,6 +86,7 @@
   width: 280px;
   background-color: #E9E9E9;
   height: calc(100vh - 50px);
+  overflow-y: auto;
 }
 .aside-icon {
   display: none;

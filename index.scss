@@ -110,6 +110,7 @@ $sp-aside: 280px;
     width: $sp-aside;
     background-color: #E9E9E9;
     height: calc(100vh - $sp-top);
+    overflow-y: auto;
 
     &-icon {
         display: none;
