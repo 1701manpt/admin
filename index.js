@@ -263,11 +263,12 @@
         divTitle.innerText = title
         a.appendChild(divIcon)
         a.appendChild(divTitle)
-        if (location.href == "http://localhost1/admin/" + href && href != ".") {
+        console.log(location.hostname)
+        if (location.href == "http://" + location.hostname + "/admin/" + href && href != ".") {
             a.classList.add("aside-item--active")
             document.title = titleUrl + " - Admin"
         }
-        if (location.href == "http://localhost1/admin/" && href == ".") {
+        if (location.href == "http://" + location.hostname + "/admin/" && href == ".") {
             a.classList.add("aside-item--active")
             document.title = titleUrl + " - Admin"
         }
