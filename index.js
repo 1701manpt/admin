@@ -263,14 +263,25 @@
         divTitle.innerText = title
         a.appendChild(divIcon)
         a.appendChild(divTitle)
-        console.log(location.hostname, location.href, location.href.slice(0, 8))
-        if (location.href == location.href.slice(0, 8) + location.hostname + "/admin/" + href && href != ".") {
-            a.classList.add("aside-item--active")
-            document.title = titleUrl + " - Admin"
+        if (location.href.slice(0, 8) == "https://") {
+            if (location.href == "https://" + location.hostname + "/admin/" + href && href != ".") {
+                a.classList.add("aside-item--active")
+                document.title = titleUrl + " - Admin"
+            }
+            if (location.href == "https://" + location.hostname + "/admin/" && href == ".") {
+                a.classList.add("aside-item--active")
+                document.title = titleUrl + " - Admin"
+            }
         }
-        if (location.href == location.href.slice(0, 8) + location.hostname + "/admin/" && href == ".") {
-            a.classList.add("aside-item--active")
-            document.title = titleUrl + " - Admin"
+        if (location.href.slice(0, 7) == "http://") {
+            if (location.href == "http://" + location.hostname + "/admin/" + href && href != ".") {
+                a.classList.add("aside-item--active")
+                document.title = titleUrl + " - Admin"
+            }
+            if (location.href == "http://" + location.hostname + "/admin/" && href == ".") {
+                a.classList.add("aside-item--active")
+                document.title = titleUrl + " - Admin"
+            }
         }
         const aside = document.querySelector(".aside")
         aside.appendChild(a)
@@ -341,3 +352,10 @@
         })
     })
 })();
+window.addEventListener("load", () => {
+    const link = document.createElement("link")
+    link.setAttribute("rel", "shortcut icon")
+    link.setAttribute("href", "./favicon.ico")
+    link.setAttribute("type", "image/x-icon")
+    document.head.appendChild(link)
+})
