@@ -33,6 +33,7 @@
   right: 0;
   bottom: 0;
   width: 100%;
+  height: calc(100vh - 50px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,7 +44,6 @@
   background-color: white;
   padding: 32px;
   box-shadow: 0 0 4px 1px black;
-  width: fit-content;
 }
 .sign_in-backdrop {
   position: fixed;
@@ -131,7 +131,7 @@
 .main {
   background-color: #DADADA;
   width: calc(100vw - 280px);
-  height: calc(100vh - 50px);
+  height: 100%;
   overflow: auto;
   padding: 16px;
 }
