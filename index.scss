@@ -119,6 +119,8 @@ $sp-aside: 280px;
         align-items: center;
         width: 100%;
         padding: $sp-16;
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.75);
 
         &:hover {
             background-color: #DADADA;
@@ -126,7 +128,8 @@ $sp-aside: 280px;
         }
 
         &--active {
-            box-shadow: $sp-4 0 blue inset;
+            // box-shadow: $sp-4 0 blue inset;
+            border-left: 4px solid blue;
         }
 
         &--control {
@@ -161,8 +164,8 @@ $sp-aside: 280px;
 
 .main {
     background-color: #DADADA;
-    min-width: calc(100vw - $sp-aside);
-    min-height: calc(100vh - $sp-top);
+    width: calc(100vw - $sp-aside);
+    height: calc(100vh - $sp-top);
     overflow: auto;
     padding: $sp-16;
 
@@ -171,6 +174,7 @@ $sp-aside: 280px;
         margin-bottom: 16px;
         padding: 16px;
         min-height: 240px;
+        width: 100%;
         box-shadow: 0 0 4px 1px #858585;
         display: flex;
         flex-direction: column;
@@ -235,7 +239,7 @@ table {
     top: $sp-top;
     right: 0;
     bottom: 0;
-    width: 768px;
+    width: 576px;
     background-color: white;
     padding: $sp-32;
     overflow-y: auto;
@@ -262,6 +266,7 @@ table {
     }
 
     &-header {
+        font-size: 1.25rem;
         text-transform: uppercase;
         margin-bottom: $sp-16;
         text-align: center;
@@ -359,20 +364,21 @@ table {
         padding: 0;
         &-item {
             min-height: calc(100vh - $sp-top);
+            margin: 0;
         }
     }
 
     .modal {
         width: 100%;
         background-color: white;
-        padding: $sp-8;
+        padding: $sp-16;
 
         &-icon-close {
-            padding: $sp-4;
+            padding: $sp-8;
         }
         &-footer {
             &-btn {
-                padding: $sp-4;
+                padding: $sp-8;
             }
         }
     }

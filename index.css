@@ -93,13 +93,15 @@
   align-items: center;
   width: 100%;
   padding: 16px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.75);
 }
 .aside-item:hover {
   background-color: #DADADA;
   box-shadow: -4px 0 white inset;
 }
 .aside-item--active {
-  box-shadow: 4px 0 blue inset;
+  border-left: 4px solid blue;
 }
 .aside-item--control:hover {
   box-shadow: unset;
@@ -124,8 +126,8 @@
 
 .main {
   background-color: #DADADA;
-  min-width: calc(100vw - 280px);
-  min-height: calc(100vh - 50px);
+  width: calc(100vw - 280px);
+  height: calc(100vh - 50px);
   overflow: auto;
   padding: 16px;
 }
@@ -134,6 +136,7 @@
   margin-bottom: 16px;
   padding: 16px;
   min-height: 240px;
+  width: 100%;
   box-shadow: 0 0 4px 1px #858585;
   display: flex;
   flex-direction: column;
@@ -187,7 +190,7 @@ table th, table td {
   top: 50px;
   right: 0;
   bottom: 0;
-  width: 768px;
+  width: 576px;
   background-color: white;
   padding: 32px;
   overflow-y: auto;
@@ -210,6 +213,7 @@ table th, table td {
   font-size: 1.5rem;
 }
 .modal-header {
+  font-size: 1.25rem;
   text-transform: uppercase;
   margin-bottom: 16px;
   text-align: center;
@@ -282,18 +286,19 @@ table th, table td {
   }
   .main-item {
     min-height: calc(100vh - 50px);
+    margin: 0;
   }
 
   .modal {
     width: 100%;
     background-color: white;
-    padding: 8px;
+    padding: 16px;
   }
   .modal-icon-close {
-    padding: 4px;
+    padding: 8px;
   }
   .modal-footer-btn {
-    padding: 4px;
+    padding: 8px;
   }
 }
 
