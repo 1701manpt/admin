@@ -46,9 +46,9 @@
                                 <th>STT</th>
                                 <th>ID</th>
                                 <th>Tên sản phẩm</th>
-                                <th>Giá nhập về</th>
-                                <th>Giá niêm gốc</th>
+                                <!-- <th>Giá nhập về</th> -->
                                 <th>Giá niêm yết</th>
+                                <!-- <th>Giá đã giảm từ CTKM</th> -->
                                 <th>Mô tả</th>
                                 <th>Loại sản phẩm (ID)</th>
                                 <th>Các thuộc tính sản phẩm</th>
@@ -67,41 +67,37 @@
                 <div class="modal-body">
                     <div class="modal-body-item">
                         <label for="">ID</label>
+                        <input type="text" name="id" readonly>
+                    </div>
+                    <div class="modal-body-item">
+                        <label for="">Tên sản phẩm</label>
+                        <input type="text" placeholder="Nhập tên sản phẩm" name="name">
+                    </div>
+                    <div class="modal-body-item">
+                        <label for="">Giá niêm yết</label>
+                        <input type="number" placeholder="Nhập giá (VND)" name="price">
+                    </div>
+                    <div class="modal-body-item">
+                        <label for="">Mô tả</label>
+                        <textarea type="number" placeholder="Nhập mô tả" name="description"></textarea>
+                    </div>
+                    <div class="modal-body-item">
+                        <label for="">Loại sản phẩm</label>
+                        <select name="type">
+                            <option value="">Loại 1</option>
+                            <option value="">Loại 4</option>
+                            <option value="">Loại 3</option>
+                            <option value="">Loại 2</option>
+                        </select>
+                    </div>
+                    <div class="modal-body-item">
+                        <label for="">Các thuộc tính</label>
                         <input type="text" placeholder="Nhập ID" name="id">
                     </div>
                     <div class="modal-body-item">
-                        <label for="">ID</label>
+                        <label for="">Các danh mục</label>
                         <input type="text" placeholder="Nhập ID" name="id">
                     </div>
-                    <div class="modal-body-item">
-                        <label for="">ID</label>
-                        <input type="text" placeholder="Nhập ID" name="id">
-                    </div>
-                    <div class="modal-body-item">
-                        <label for="">ID</label>
-                        <input type="text" placeholder="Nhập ID" name="id">
-                    </div>
-                    <div class="modal-body-item">
-                        <label for="">ID</label>
-                        <input type="text" placeholder="Nhập ID" name="id">
-                    </div>
-                    <div class="modal-body-item">
-                        <label for="">ID</label>
-                        <input type="text" placeholder="Nhập ID" name="id">
-                    </div>
-                    <div class="modal-body-item">
-                        <label for="">ID</label>
-                        <input type="text" placeholder="Nhập ID" name="id">
-                    </div>
-                    <div class="modal-body-item">
-                        <label for="">ID</label>
-                        <input type="text" placeholder="Nhập ID" name="id">
-                    </div>
-                    <div class="modal-body-item">
-                        <label for="">ID</label>
-                        <input type="text" placeholder="Nhập ID" name="id">
-                    </div>
-
                 </div>
                 <div class="modal-footer">
                     <button class="modal-footer-btn modal-footer-btn--primary js-create">Tạo</button>

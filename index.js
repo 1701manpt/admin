@@ -1,45 +1,193 @@
 (function customer() {
+
+    // đây là dữ liệu ảo, như dữ liệu từ server trả về
     const customers = [
         {
-            id: 1,
+            id: 32,
             name: "Thái Phương Nam",
             gender: "Nam",
             birth_date: "2001-07-10",
             address: "Bình Định",
             email: "thaiphuongnam1071@gmail.com",
             password: null,
-            date_create: "2001-07-10",
+            date_create: "2022-01-24",
             state: "normal",
         },
         {
-            id: 2,
-            name: "TdfwefNam",
+            id: 42,
+            name: "Nguyễn Văn A",
             gender: "Nam",
-            birth_date: "2001-07-10",
-            address: "Bình Định",
-            email: "thaiphuongnam1071@gmail.com",
+            birth_date: "2001-07-20",
+            address: "Thành Phố Hồ Chí Minh",
+            email: "vana@gmail.com",
             password: null,
-            date_create: "2001-07-10",
+            date_create: "2021-02-20",
             state: "normal",
         },
         {
-            id: 3,
-            name: "Tccc",
-            gender: "Nam",
-            birth_date: "2001-07-10",
-            address: "Bình Định",
-            email: "thaiphuongnam1071@gmail.com",
+            id: 521,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
             password: null,
-            date_create: "2001-07-10",
-            state: "normal",
-        }
+            date_create: "2022-05-10",
+            state: "locked",
+        },
+        {
+            id: 522,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+        },
+        {
+            id: 523,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+        },
+        {
+            id: 524,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+        },
+        {
+            id: 525,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+        },
+        {
+            id: 526,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+        },
+        {
+            id: 527,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+        },
+        {
+            id: 528,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+        },
+        {
+            id: 529,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+        },
+        {
+            id: 5210,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+        },
+        {
+            id: 5211,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+        },
+        {
+            id: 5212,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+        },
+        {
+            id: 5213,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+        },
+        {
+            id: 5214,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+        },
     ]
 
+    // tải tất cả row vào table
     function loadTable() {
         customers.forEach((item, index) => {
             createRow(item, index + 1)
         })
     }
+
+    // tạo row
     function createRow(obj, index = null) {
         const row = document.createElement("tr")
         row.setAttribute("id", "customer" + obj.id)
@@ -54,15 +202,22 @@
             cell.innerText = obj[key]
             row.appendChild(cell)
         })
+        const detail = document.createElement("td")
+        detail.innerHTML = '<i class="bi bi-ticket-detailed" id=detail' + obj.id + '></i>'
+        row.appendChild(detail)
         const edit = document.createElement("td")
         edit.innerHTML = '<i class="bi bi-pencil-square js-edit-btn" id=edit' + obj.id + '></i>'
         row.appendChild(edit)
-        const table = document.querySelector(".js-table-customer")
+        const init = document.querySelector(".app-body.customer")
+        const table = init.querySelector(".js-table")
         table.appendChild(row)
     }
+
+    // lắng nghe sự kiện tạo đối tượng customer
     function handleCreate() {
-        const create = document.querySelector(".js-create")
-        const form = document.getElementsByClassName("js-create-form")[0]
+        const init = document.querySelector(".app-body.customer")
+        const create = init.querySelector(".js-finish-btn")
+        const form = init.querySelector(".js-create-form")
         form.addEventListener("submit", (e) => {
             e.preventDefault()
         })
@@ -73,47 +228,61 @@
             alert("Thành công!!!")
         })
     }
+
+    // xóa row
     function removeRow(id) {
-        const table = document.querySelector(".js-table-customer")
-        const row = table.querySelector("#customer" + id)
+        const init = document.querySelector(".app-body.customer")
+        const table = init.querySelector(".js-table")
+        const row = init.querySelector("#customer" + id)
         table.removeChild(row)
     }
+
+    // xóa nhiều row
     function removeRows(arr) {
         arr.forEach((id) => {
             removeRow(id)
         })
     }
+
+    // lắng nghe sự kiện xóa đối tượng customer
     function handleRemove() {
-        const removeBtn = document.querySelector(".js-remove-btn")
+        const init = document.querySelector(".app-body.customer")
+        const removeBtn = init.querySelector(".js-remove-btn")
         removeBtn.addEventListener("click", () => {
-            const removeArr = document.querySelectorAll("input[name='remove']")
-            var data = []
+            const removeArr = init.querySelectorAll("input[name='remove']")
+            let data = []
             removeArr.forEach((checkbox) => {
                 if (checkbox.checked == true) {
                     data.push(checkbox.id.slice(6))
                 }
             })
             removeRows(data)
+            console.log(data)
             data = []
             alert("Thành công!!!")
         })
     }
+
+    // cập nhật row
     function updateRow(obj) {
-        const table = document.querySelector(".js-table-customer")
-        const row = table.querySelector("#customer" + obj.id)
+        const init = document.querySelector(".app-body.customer")
+        const row = init.querySelector("#customer" + obj.id)
         const cells = row.childNodes;
         const arr = [...Object.values(obj)]
         cells.forEach((cell, index) => {
-            if (index >= 2 && index < cells.length - 1) {
+            if (index >= 2 && index < cells.length - 2) {
                 cell.innerText = arr[index - 2]
             }
         })
     }
+
+    // tải dữ liệu row vào form để cập nhật dữ liệu
     function loadRowToForm() {
-        const form = document.querySelector(".js-edit-form")
+        const init = document.querySelector(".app-body.customer")
+        const form = init.querySelector(".js-update-form")
         const data = new FormData(form)
         const obj = Object.fromEntries(data)
-        const load = document.querySelectorAll(".js-edit-btn")
+        const load = init.querySelectorAll(".js-edit-btn")
         load.forEach((item, index) => {
             item.addEventListener("click", () => {
                 customers.forEach((customer, index) => {
@@ -135,9 +304,12 @@
             })
         })
     }
+
+    // lắng nghe sự kiện cập nhật đối tượng customer
     function handleUpdate() {
-        const form = document.querySelector(".js-edit-form")
-        const update = form.querySelector(".js-update-btn")
+        const init = document.querySelector(".app-body.customer")
+        const form = init.querySelector(".js-update-form")
+        const update = form.querySelector(".js-finish-btn")
         form.addEventListener("submit", (e) => {
             e.preventDefault()
         })
@@ -148,121 +320,234 @@
             alert("Thành công!!!")
         })
     }
+
+    // chờ tải DOM xong thì làm
     window.addEventListener("load", () => {
-        loadTable()
-        handleRemove()
-        handleCreate()
-        loadRowToForm()
-        handleUpdate()
+        const arr = ["https://" + location.hostname + "/admin/customer", "http://" + location.hostname + "/admin/customer"]
+        if ((arr.some(e => e == location.href))) {
+            loadTable()
+            handleRemove()
+            handleCreate()
+            loadRowToForm()
+            handleUpdate()
+        }
     })
+
 })();
 
-(function order() {
-    const orders = [
+(function staff() {
+
+    // đây là dữ liệu ảo, như dữ liệu từ server trả về
+    const staffs = [
         {
-            id: 1,
-            customer_id: 24,
-            receive_number_phone: "0337948940",
+            id: 32,
+            name: "Thái Phương Nam",
+            gender: "Nam",
+            birth_date: "2001-07-10",
             address: "Bình Định",
-            description: "Đưa vào giờ hành chính nhé",
-            date_start: "2001-07-10",
-            date_end: "2001-07-10",
-            state: "Chưa giao",
+            email: "thaiphuongnam1071@gmail.com",
+            password: null,
+            date_create: "2022-01-24",
+            state: "normal",
+            role_id: 32,
         },
         {
-            id: 1,
-            customer_id: 24,
-            receive_number_phone: "0337948940",
-            address: "Bình Định",
-            description: "Đưa vào giờ hành chính nhé",
-            date_start: "2001-07-10",
-            date_end: "2001-07-10",
-            state: "Chưa giao",
+            id: 42,
+            name: "Nguyễn Văn A",
+            gender: "Nam",
+            birth_date: "2001-07-20",
+            address: "Thành Phố Hồ Chí Minh",
+            email: "vana@gmail.com",
+            password: null,
+            date_create: "2021-02-20",
+            state: "normal",
+            role_id: 32,
         },
         {
-            id: 1,
-            customer_id: 24,
-            receive_number_phone: "0337948940",
-            address: "Bình Định",
-            description: "Đưa vào giờ hành chính nhé",
-            date_start: "2001-07-10",
-            date_end: "2001-07-10",
-            state: "Chưa giao",
+            id: 521,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+            role_id: 32,
         },
         {
-            id: 1,
-            customer_id: 24,
-            receive_number_phone: "0337948940",
-            address: "Bình Định",
-            description: "Đưa vào giờ hành chính nhé",
-            date_start: "2001-07-10",
-            date_end: "2001-07-10",
-            state: "Chưa giao",
+            id: 522,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+            role_id: 32,
         },
         {
-            id: 1,
-            customer_id: 24,
-            receive_number_phone: "0337948940",
-            address: "Bình Định",
-            description: "Đưa vào giờ hành chính nhé",
-            date_start: "2001-07-10",
-            date_end: "2001-07-10",
-            state: "Chưa giao",
+            id: 523,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+            role_id: 32,
         },
         {
-            id: 1,
-            customer_id: 24,
-            receive_number_phone: "0337948940",
-            address: "Bình Định",
-            description: "Đưa vào giờ hành chính nhé",
-            date_start: "2001-07-10",
-            date_end: "2001-07-10",
-            state: "Chưa giao",
+            id: 524,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+            role_id: 32,
         },
         {
-            id: 1,
-            customer_id: 24,
-            receive_number_phone: "0337948940",
-            address: "Bình Định",
-            description: "Đưa vào giờ hành chính nhé",
-            date_start: "2001-07-10",
-            date_end: "2001-07-10",
-            state: "Chưa giao",
+            id: 525,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+            role_id: 32,
         },
         {
-            id: 1,
-            customer_id: 24,
-            receive_number_phone: "0337948940",
-            address: "Bình Định",
-            description: "Đưa vào giờ hành chính nhé",
-            date_start: "2001-07-10",
-            date_end: "2001-07-10",
-            state: "Chưa giao",
+            id: 526,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+            role_id: 32,
         },
         {
-            id: 1,
-            customer_id: 24,
-            receive_number_phone: "0337948940",
-            address: "Bình Định",
-            description: "Đưa vào giờ hành chính nhé",
-            date_start: "2001-07-10",
-            date_end: "2001-07-10",
-            state: "Chưa giao",
+            id: 527,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+            role_id: 32,
         },
         {
-            id: 1,
-            customer_id: 24,
-            receive_number_phone: "0337948940",
-            address: "Bình Định",
-            description: "Đưa vào giờ hành chính nhé",
-            date_start: "2001-07-10",
-            date_end: "2001-07-10",
-            state: "Chưa giao",
+            id: 528,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+            role_id: 32,
+        },
+        {
+            id: 529,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+            role_id: 32,
+        },
+        {
+            id: 5210,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+            role_id: 32,
+        },
+        {
+            id: 5211,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+            role_id: 32,
+        },
+        {
+            id: 5212,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+            role_id: 32,
+        },
+        {
+            id: 5213,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+            role_id: 32,
+        },
+        {
+            id: 5214,
+            name: "Người dùng 1",
+            gender: "Nữ",
+            birth_date: "2004-02-01",
+            address: "Vũng Tàu",
+            email: "ttpn1@gmail.com",
+            password: null,
+            date_create: "2022-05-10",
+            state: "locked",
+            role_id: 32,
         },
     ]
+
+    // tải tất cả row vào table
+    function loadTable() {
+        staffs.forEach((item, index) => {
+            createRow(item, index + 1)
+        })
+    }
+
+    // tạo row
     function createRow(obj, index = null) {
         const row = document.createElement("tr")
-        const stt = document.createElement("td")
+        row.setAttribute("id", "staff" + obj.id)
+        const checkbox = document.createElement("td")
+        checkbox.innerHTML = "<input type='checkbox' id=remove" + obj.id + " name='remove'/>"
+        row.appendChild(checkbox)
+        stt = document.createElement("td")
         stt.innerText = index
         row.appendChild(stt)
         Object.keys(obj).forEach((key) => {
@@ -270,23 +555,137 @@
             cell.innerText = obj[key]
             row.appendChild(cell)
         })
-        const table = document.querySelector(".js-table--order")
+        // const detail = document.createElement("td")
+        // detail.innerHTML = '<i class="bi bi-ticket-detailed" id=detail' + obj.id + '></i>'
+        // row.appendChild(detail)
+        const edit = document.createElement("td")
+        edit.innerHTML = '<i class="bi bi-pencil-square js-edit-btn" id=edit' + obj.id + '></i>'
+        row.appendChild(edit)
+        const init = document.querySelector(".app-body.staff")
+        const table = init.querySelector(".js-table")
         table.appendChild(row)
     }
-    function deleteRow(id) {
 
-    }
-    function handleCreateRow() {
-
-    }
-    function loadTable(orders) {
-        orders.forEach((order, index) => {
-            createRow(order, index + 1)
+    // lắng nghe sự kiện tạo đối tượng staff
+    function handleCreate() {
+        const init = document.querySelector(".app-body.staff")
+        const create = init.querySelector(".js-finish-btn")
+        const form = init.querySelector(".js-create-form")
+        form.addEventListener("submit", (e) => {
+            e.preventDefault()
+        })
+        create.addEventListener("click", () => {
+            const data = new FormData(form)
+            const obj = Object.fromEntries(data)
+            createRow(obj)
+            alert("Thành công!!!")
         })
     }
+
+    // xóa row
+    function removeRow(id) {
+        const init = document.querySelector(".app-body.staff")
+        const table = init.querySelector(".js-table")
+        const row = init.querySelector("#staff" + id)
+        table.removeChild(row)
+    }
+
+    // xóa nhiều row
+    function removeRows(arr) {
+        arr.forEach((id) => {
+            removeRow(id)
+        })
+    }
+
+    // lắng nghe sự kiện xóa đối tượng staff
+    function handleRemove() {
+        const init = document.querySelector(".app-body.staff")
+        const removeBtn = init.querySelector(".js-remove-btn")
+        removeBtn.addEventListener("click", () => {
+            const removeArr = init.querySelectorAll("input[name='remove']")
+            let data = []
+            removeArr.forEach((checkbox) => {
+                if (checkbox.checked == true) {
+                    data.push(checkbox.id.slice(6))
+                }
+            })
+            removeRows(data)
+            console.log(data)
+            data = []
+            alert("Thành công!!!")
+        })
+    }
+
+    // cập nhật row
+    function updateRow(obj) {
+        const init = document.querySelector(".app-body.staff")
+        const row = init.querySelector("#staff" + obj.id)
+        const cells = row.childNodes;
+        const arr = [...Object.values(obj)]
+        cells.forEach((cell, index) => {
+            if (index >= 2 && index < cells.length - 1) {
+                cell.innerText = arr[index - 2]
+            }
+        })
+    }
+
+    // tải dữ liệu row vào form để cập nhật dữ liệu
+    function loadRowToForm() {
+        const init = document.querySelector(".app-body.staff")
+        const form = init.querySelector(".js-update-form")
+        const data = new FormData(form)
+        const obj = Object.fromEntries(data)
+        const load = init.querySelectorAll(".js-edit-btn")
+        load.forEach((item, index) => {
+            item.addEventListener("click", () => {
+                staffs.forEach((staff, index) => {
+                    if ("edit" + staff.id == item.id) {
+                        // form.querySelector("[name='id']").value = staff.id
+                        // form.querySelector("[name='name']").value = staff.name
+                        // form.querySelector("[name='gender']").value = staff.gender
+                        // form.querySelector("[name='birth_date']").value = staff.birth_date
+                        // form.querySelector("[name='address']").value = staff.address
+                        // form.querySelector("[name='email']").value = staff.email
+                        // form.querySelector("[name='password']").value = staff.password
+                        // form.querySelector("[name='date_create']").value = staff.date_create
+                        // form.querySelector("[name='state']").value = staff.state
+                        Object.keys(staff).forEach((key, index) => {
+                            form.querySelector("[name=" + key + "]").value = Object.values(staff)[index]
+                        })
+                    }
+                })
+            })
+        })
+    }
+
+    // lắng nghe sự kiện cập nhật đối tượng staff
+    function handleUpdate() {
+        const init = document.querySelector(".app-body.staff")
+        const form = init.querySelector(".js-update-form")
+        const update = form.querySelector(".js-finish-btn")
+        form.addEventListener("submit", (e) => {
+            e.preventDefault()
+        })
+        update.addEventListener("click", () => {
+            const data = new FormData(form)
+            const obj = Object.fromEntries(data)
+            updateRow(obj)
+            alert("Thành công!!!")
+        })
+    }
+
+    // chờ tải DOM xong thì làm
     window.addEventListener("load", () => {
-        loadTable(orders)
+        const arr = ["https://" + location.hostname + "/admin/staff", "http://" + location.hostname + "/admin/staff"]
+        if ((arr.some(e => e == location.href))) {
+            loadTable()
+            handleRemove()
+            handleCreate()
+            loadRowToForm()
+            handleUpdate()
+        }
     })
+
 })();
 
 (function aside() {
@@ -414,16 +813,16 @@
 
     function create(obj) {
         const modal = document.querySelector(obj.modal)
-        let open
+
         if (obj.open != null) {
-            open = document.querySelector(obj.open)
+            let open = document.querySelector(obj.open)
             open.addEventListener("click", () => {
                 modal.classList.add(obj.active)
             })
         }
-        let opens
+
         if (obj.opens != null) {
-            opens = document.querySelectorAll(obj.opens)
+            let opens = document.querySelectorAll(obj.opens)
             opens.forEach((item) => {
                 item.addEventListener("click", () => {
                     modal.classList.add(obj.active)
@@ -439,14 +838,14 @@
     }
     window.addEventListener("load", () => {
         create({
-            modal: ".modal.js-create-modal",
-            open: ".js-create-btn",
+            modal: ".modal.js-create-form",
+            open: ".js-open-form-create-btn",
             opens: null,
             close: ".js-close-btn",
             active: "modal--active",
         })
         create({
-            modal: ".modal.js-edit-modal",
+            modal: ".modal.js-update-form",
             open: null,
             opens: ".js-edit-btn",
             close: ".js-close-btn",
