@@ -42,7 +42,8 @@
 }
 
 .sign_in {
-  position: absolute;
+  position: relative;
+  top: -50px;
   background-color: white;
   padding: 32px;
   box-shadow: 0 0 4px 1px black;
@@ -165,8 +166,11 @@
   border-radius: 4px;
   width: 80px;
 }
+.item-control-btn:hover {
+  opacity: 0.75;
+}
 .item-control-btn--primary {
-  background-color: blue;
+  background-color: #0d6efd;
   color: white;
 }
 .item-control-btn--secondary {
@@ -174,7 +178,7 @@
   color: white;
 }
 .item-control-btn--danger {
-  background-color: red;
+  background-color: #dc3545;
   color: white;
 }
 .item-content {
@@ -182,15 +186,20 @@
   overflow-x: auto;
 }
 
-table {
+.table {
   width: 100%;
-}
-table th, table td {
-  border: solid 1px black;
-  padding: 4px;
   text-align: center;
 }
-
+.table-row:hover {
+  background-color: #E9E9E9;
+}
+.table-row.--key {
+  text-transform: uppercase;
+}
+.table-col {
+  padding: 8px;
+  border: 1px solid #E9E9E9;
+}
 .modal {
   position: fixed;
   top: 50px;
@@ -201,10 +210,14 @@ table th, table td {
   padding: 32px;
   overflow-y: auto;
   transform: translateX(100%);
+  opacity: 0.75;
+  transition: all 0.5s ease;
 }
 .modal--active {
   box-shadow: 0 0 4px 1px black;
   transform: translateX(0%);
+  transition: all 0.5s ease;
+  opacity: unset;
 }
 .modal-icon-close {
   position: absolute;
@@ -244,10 +257,24 @@ table th, table td {
 .modal-footer-btn {
   padding: 8px;
   margin-right: 8px;
+  border: 1px solid back;
+  border-radius: 4px;
+  border: none;
+  color: white;
+}
+.modal-footer-btn:hover, .modal-footer-btn:active {
+  opacity: 0.75;
 }
 .modal-footer-btn--primary {
   width: 100%;
   margin-bottom: 16px;
+  background-color: #0d6efd;
+}
+.modal-footer-btn--secondary {
+  background-color: darkgray;
+}
+.modal-footer-btn--warning {
+  background-color: #ffc107;
 }
 
 @media (max-width: 768px) {
@@ -271,18 +298,20 @@ table th, table td {
   .aside--active {
     transform: translateX(0%);
   }
-  .aside-item--control {
-    float: right;
-    width: fit-content;
-  }
   .aside-item--control i {
-    font-size: 1.5rem;
+    width: 100%;
   }
   .aside-item-icon--open {
     display: none;
   }
   .aside-item-icon--close {
     display: block;
+    width: 100%;
+  }
+  .aside-item-icon--close i {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: end;
   }
   .aside + .main {
     width: 100%;

@@ -21,7 +21,7 @@
             </div>
             <p>Nghị Quân Shop Admin Center</p>
         </div>
-        <div class="app-body">
+        <div class="app-body category">
             <div class="aside">
                 <div class="aside-item aside-item--control">
                     <div class="aside-item-icon aside-item-icon--open">
@@ -36,25 +36,17 @@
                 <div class="main-item">
                     <div class="item-title">Quản lý danh mục</div>
                     <div class="item-control">
-                        <button class="item-control-btn item-control-btn--primary js-create-btn">Thêm</button>
+                        <button class="item-control-btn item-control-btn--primary js-open-form-create-btn">Thêm</button>
                         <button class="item-control-btn item-control-btn--danger js-remove-btn">Xóa</button>
                     </div>
                     <div class="item-content">
-                        <table class="js-table-customer js-remove-form">
-                            <tr>
-                                <th><input type="checkbox" name="" id=""></th>
-                                <th>STT</th>
-                                <th>ID</th>
-                                <th>Tên danh mục</th>
-                                <th>Mô tả</th>
-                                <th></th>
-                                <th>Các sản phẩm thuộc danh mục</th>
-                            </tr>
+                        <table class="table --category">
+                            <!--  -->
                         </table>
                     </div>
                 </div>
             </div>
-            <form class="modal js-create-modal js-create-form">
+            <form class="modal js-create-form">
                 <div class="modal-icon-close js-close-btn">
                     <i class="bi bi-x"></i>
                 </div>
@@ -81,15 +73,15 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="modal-footer-btn modal-footer-btn--primary js-create">Tạo</button>
-                    <button class="modal-footer-btn js-close-btn">Đóng</button>
-                    <button class="modal-footer-btn">Tải lại</button>
+                    <button class="modal-footer-btn modal-footer-btn--primary js-finish-btn">Tạo</button>
+                    <button class="modal-footer-btn modal-footer-btn--secondary js-close-btn">Đóng</button>
+                    <!-- <button class="modal-footer-btn modal-footer-btn--secondary">Tải lại</button> -->
                 </div>
             </form>
 
             <!--  -->
 
-            <form class="modal js-edit-modal js-edit-form">
+            <form class="modal js-update-form">
                 <div class="modal-icon-close js-close-btn">
                     <i class="bi bi-x"></i>
                 </div>
@@ -116,9 +108,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="modal-footer-btn modal-footer-btn--primary js-update-btn">Tạo</button>
-                    <button class="modal-footer-btn js-close-btn">Đóng</button>
-                    <button class="modal-footer-btn">Tải lại</button>
+                    <button class="modal-footer-btn modal-footer-btn--primary js-finish-btn">Tạo</button>
+                    <button class="modal-footer-btn modal-footer-btn--secondary js-close-btn">Đóng</button>
+                    <!-- <button class="modal-footer-btn modal-footer-btn--secondary">Tải lại</button> -->
                 </div>
             </form>
         </div>
