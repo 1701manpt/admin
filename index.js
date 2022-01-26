@@ -121,51 +121,6 @@
     })
 })();
 
-(function modal() {
-
-    function create(obj) {
-        const modal = document.querySelector(obj.modal)
-
-        if (obj.open != null) {
-            let open = document.querySelector(obj.open)
-            open.addEventListener("click", () => {
-                modal.classList.add(obj.active)
-            })
-        }
-
-        if (obj.opens != null) {
-            let opens = document.querySelectorAll(obj.opens)
-            opens.forEach((item) => {
-                item.addEventListener("click", () => {
-                    modal.classList.add(obj.active)
-                })
-            })
-        }
-        const close = modal.querySelectorAll(obj.close)
-        close.forEach((item) => {
-            item.addEventListener("click", () => {
-                modal.classList.remove(obj.active)
-            })
-        })
-    }
-    window.addEventListener("load", () => {
-        create({
-            modal: ".modal.js-create-form",
-            open: ".js-open-form-create-btn",
-            opens: null,
-            close: ".js-close-btn",
-            active: "modal--active",
-        })
-        create({
-            modal: ".modal.js-update-form",
-            open: null,
-            opens: ".js-edit-btn",
-            close: ".js-close-btn",
-            active: "modal--active",
-        })
-    })
-})();
-
 (function iconUrl() {
     window.addEventListener("load", () => {
         const link = document.createElement("link")
@@ -176,45 +131,13 @@
     })
 })();
 
-(function input() {
-    function checkAll() {
-        const checkAll = document.querySelector(".js-remove-check-all")
-        const checks = document.querySelectorAll("input[type='checkbox'][name='remove']")
-        checkAll.addEventListener("change", () => {
-            checks.forEach((check) => {
-                check.checked = checkAll.checked
-            })
-        })
-        checks.forEach((check) => {
-            check.addEventListener("change", () => {
-                var count = 0
-                for (var i = 0; i < checks.length; i++) {
-                    const check = checks[i]
-                    if (check.checked) {
-                        count++
-                    }
-                }
-                if (count != checks.length) {
-                    checkAll.checked = false
-                }
-                if (count == checks.length) {
-                    checkAll.checked = true
-                }
-            })
-        })
-    }
-    window.addEventListener("load", () => {
-        checkAll()
-    })
-})();
-
 (function () {
     class Table {
         constructor(args) {
             this.page = document.querySelector(args.page)
             this.table = this.page.querySelector(args.table)
             this.row
-            console.log(this.page, this.table)
+            // console.log(this.page, this.table)
         }
 
         createCol(obj) {
@@ -309,7 +232,7 @@
             {
                 name: "check-all",
                 html: '<input type="checkbox" class="js-remove-check-all">',
-                const: '<input type="checkbox">',
+                const: '<input type="checkbox" name="remove">',
             },
             {
                 name: "stt",
@@ -339,7 +262,7 @@
             {
                 name: "update",
                 html: "",
-                const: '<i class="bi bi-pencil-square"></i>',
+                const: '<i class="bi bi-pencil-square js-update-btn"></i>',
             },
         ]
         const rows = [
@@ -372,7 +295,7 @@
             {
                 name: "check-all",
                 html: '<input type="checkbox" class="js-remove-check-all">',
-                const: '<input type="checkbox">',
+                const: '<input type="checkbox" name="remove">',
             },
             {
                 name: "stt",
@@ -427,12 +350,12 @@
             {
                 name: "detail",
                 html: "Chi tiết",
-                const: '<i class="bi bi-ticket-detailed">',
+                const: '<i class="bi bi-ticket-detailed"></i>',
             },
             {
                 name: "update",
                 html: "",
-                const: '<i class="bi bi-pencil-square"></i>',
+                const: '<i class="bi bi-pencil-square js-update-btn"></i>',
             },
         ]
         const customers = [
@@ -626,7 +549,7 @@
             {
                 name: "check-all",
                 html: '<input type="checkbox" class="js-remove-check-all">',
-                const: '<input type="checkbox">',
+                const: '<input type="checkbox" name="remove">',
             },
             {
                 name: "stt",
@@ -686,7 +609,7 @@
             {
                 name: "update",
                 html: "",
-                const: '<i class="bi bi-pencil-square"></i>',
+                const: '<i class="bi bi-pencil-square js-update-btn"></i>',
             },
         ]
         const staffs = [
@@ -897,7 +820,7 @@
             {
                 name: "check-all",
                 html: '<input type="checkbox" class="js-remove-check-all">',
-                const: '<input type="checkbox">',
+                const: '<input type="checkbox" name="remove">',
             },
             {
                 name: "stt",
@@ -927,7 +850,7 @@
             {
                 name: "update",
                 html: "",
-                const: '<i class="bi bi-pencil-square"></i>',
+                const: '<i class="bi bi-pencil-square js-update-btn"></i>',
             },
         ]
         const types = [
@@ -980,7 +903,7 @@
             {
                 name: "check-all",
                 html: '<input type="checkbox" class="js-remove-check-all">',
-                const: '<input type="checkbox">',
+                const: '<input type="checkbox" name="remove">',
             },
             {
                 name: "stt",
@@ -1010,7 +933,7 @@
             {
                 name: "update",
                 html: "",
-                const: '<i class="bi bi-pencil-square"></i>',
+                const: '<i class="bi bi-pencil-square js-update-btn"></i>',
             },
         ]
         const types = [
@@ -1063,7 +986,7 @@
             {
                 name: "check-all",
                 html: '<input type="checkbox" class="js-remove-check-all">',
-                const: '<input type="checkbox">',
+                const: '<input type="checkbox" name="remove">',
             },
             {
                 name: "stt",
@@ -1093,7 +1016,7 @@
             {
                 name: "update",
                 html: "",
-                const: '<i class="bi bi-pencil-square"></i>',
+                const: '<i class="bi bi-pencil-square js-update-btn"></i>',
             },
         ]
         const types = [
@@ -1146,7 +1069,7 @@
             {
                 name: "check-all",
                 html: '<input type="checkbox" class="js-remove-check-all">',
-                const: '<input type="checkbox">',
+                const: '<input type="checkbox" name="remove">',
             },
             {
                 name: "stt",
@@ -1176,7 +1099,7 @@
             {
                 name: "update",
                 html: "",
-                const: '<i class="bi bi-pencil-square"></i>',
+                const: '<i class="bi bi-pencil-square js-update-btn"></i>',
             },
         ]
         const types = [
@@ -1229,7 +1152,7 @@
             {
                 name: "check-all",
                 html: '<input type="checkbox" class="js-remove-check-all">',
-                const: '<input type="checkbox">',
+                const: '<input type="checkbox" name="remove">',
             },
             {
                 name: "stt",
@@ -1259,7 +1182,7 @@
             {
                 name: "update",
                 html: "",
-                const: '<i class="bi bi-pencil-square"></i>',
+                const: '<i class="bi bi-pencil-square js-update-btn"></i>',
             },
         ]
         const types = [
@@ -1312,7 +1235,7 @@
             {
                 name: "check-all",
                 html: '<input type="checkbox" class="js-remove-check-all">',
-                const: '<input type="checkbox">',
+                const: '<input type="checkbox" name="remove">',
             },
             {
                 name: "stt",
@@ -1342,7 +1265,7 @@
             {
                 name: "update",
                 html: "",
-                const: '<i class="bi bi-pencil-square"></i>',
+                const: '<i class="bi bi-pencil-square js-update-btn"></i>',
             },
         ]
         const types = [
@@ -1423,5 +1346,84 @@
             roleTable()
         }
         catch (err) { }
+    })
+})();
+
+(function input() {
+    function checkAll() {
+        const checkAll = document.querySelector(".js-remove-check-all")
+        const checks = document.querySelectorAll("input[type='checkbox'][name='remove']")
+        // console.log(checkAll, checks)
+        checkAll.addEventListener("change", () => {
+            checks.forEach((check) => {
+                check.checked = checkAll.checked
+            })
+        })
+        checks.forEach((check) => {
+            check.addEventListener("change", () => {
+                var count = 0
+                for (var i = 0; i < checks.length; i++) {
+                    const check = checks[i]
+                    if (check.checked) {
+                        count++
+                    }
+                }
+                if (count != checks.length) {
+                    checkAll.checked = false
+                }
+                if (count == checks.length) {
+                    checkAll.checked = true
+                }
+            })
+        })
+    }
+    window.addEventListener("load", () => {
+        checkAll()
+    })
+})();
+
+(function modal() {
+
+    function create(obj) {
+        const modal = document.querySelector(obj.modal)
+
+        if (obj.open != null) {
+            let open = document.querySelector(obj.open)
+            open.addEventListener("click", () => {
+                modal.classList.add(obj.active)
+            })
+        }
+
+        if (obj.opens != null) {
+            let opens = document.querySelectorAll(obj.opens)
+            opens.forEach((item) => {
+                item.addEventListener("click", () => {
+                    modal.classList.add(obj.active)
+                    // console.log("update")
+                })
+            })
+        }
+        const close = modal.querySelectorAll(obj.close)
+        close.forEach((item) => {
+            item.addEventListener("click", () => {
+                modal.classList.remove(obj.active)
+            })
+        })
+    }
+    window.addEventListener("load", () => {
+        create({
+            modal: ".modal.js-create-form",
+            open: ".js-open-form-create-btn",
+            opens: null,
+            close: ".js-close-btn",
+            active: "modal--active",
+        })
+        create({
+            modal: ".modal.js-update-form",
+            open: null,
+            opens: ".js-update-btn",
+            close: ".js-close-btn",
+            active: "modal--active",
+        })
     })
 })();
