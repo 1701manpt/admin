@@ -133,10 +133,15 @@
 
 (function () {
     class Table {
-        constructor(args) {
-            this.page = document.querySelector(args.page)
-            this.table = this.page.querySelector(args.table)
-            this.row
+        constructor(init, keys, values) {
+            this.page = document.querySelector(init.page)
+            this.table = this.page.querySelector(init.table)
+            this.createRowKey(keys)
+            this.createRows(values, keys)
+            this.handleRemove()
+            this.handleCreate(values.length, keys)
+            this.mappingRow()
+            this.handleUpdate()
             // console.log(this.page, this.table)
         }
 
@@ -186,11 +191,12 @@
         }
 
         createRow(o, index, keys) {
-            // console.group("Tạo row: ", index)
+            // console.log(o)
             const obj = this.row(o, index, keys)
             // console.log(obj)
             const row = document.createElement("tr")
             row.classList.add("table-row")
+            row.id = "--" + obj.id
             keys.forEach((key) => {
                 Object.entries(obj).forEach((arr) => {
                     if (key.name == arr[0]) {
@@ -209,6 +215,101 @@
         createRows(arr, keys) {
             arr.forEach((row, index) => {
                 this.createRow(row, index, keys)
+            })
+        }
+
+        removeRow(id) {
+            const row = this.page.querySelector('#' + id)
+            this.table.removeChild(row)
+        }
+
+        removeRows(arr) {
+            arr.forEach((id, index) => {
+                this.removeRow(id)
+            })
+        }
+
+        handleRemove() {
+            const remove = this.page.querySelector(".js-remove-btn")
+            remove.addEventListener("click", () => {
+                const removeArr = this.table.querySelectorAll("input[name=remove]")
+                let data = []
+                removeArr.forEach((checkbox) => {
+                    if (checkbox.checked == true) {
+                        // console.log((checkbox.parentNode).parentNode.id)
+                        data.push((checkbox.parentNode).parentNode.id)
+                    }
+                })
+                if (data.length <= 0) {
+                    alert("Không có mục nào được chọn!")
+                }
+                if (data.length >= 1 && confirm("Bạn chắc chắn muốn xóa " + data.length + " khách hàng ?")) {
+                    this.removeRows(data)
+                    data = []
+                    const checkAll = this.table.querySelector(".js-remove-check-all")
+                    checkAll.checked = false
+                    alert("Thành công!!!")
+                } else {
+
+                }
+            })
+        }
+
+        handleCreate(index, keys) {
+            const form = this.page.querySelector(".js-create-form")
+            const finish = form.querySelector(".js-finish-btn")
+            form.addEventListener("submit", (e) => {
+                e.preventDefault()
+            })
+            finish.addEventListener("click", () => {
+                const data = new FormData(form)
+                const object = Object.fromEntries(data)
+                this.createRow(object, index, keys)
+                alert("Thành công!!!")
+                this.mappingRow()
+            })
+        }
+
+        updateRow(obj) {
+            const row = this.table.querySelector("#--" + obj.id)
+            const cells = row.childNodes
+            cells.forEach((cell, index) => {
+                Object.entries(obj).forEach((arr, index) => {
+                    if (cell.getAttribute("name") == arr[0]) {
+                        cell.innerHTML = arr[1]
+                    }
+                })
+            })
+        }
+
+        mappingRow() {
+            const opens = this.table.querySelectorAll(".js-update-btn")
+            opens.forEach((open) => {
+                open.addEventListener("click", () => {
+                    const row = open.parentNode.parentNode
+                    const cells = row.childNodes
+                    const form = this.page.querySelector(".js-update-form")
+                    cells.forEach((cell, index) => {
+                        try {
+                            const name = cell.getAttribute("name")
+                            form.querySelector("[name=" + name + "]").value = cell.textContent
+                        }
+                        catch (e) { }
+                    })
+                })
+            })
+        }
+
+        handleUpdate() {
+            const form = this.page.querySelector(".js-update-form")
+            const finish = form.querySelector(".js-finish-btn")
+            form.addEventListener("submit", (e) => {
+                e.preventDefault()
+            })
+            finish.addEventListener("click", () => {
+                const data = new FormData(form)
+                this.updateRow(Object.fromEntries(data))
+                alert("Thành công!!!")
             })
         }
 
@@ -286,11 +387,11 @@
         tbl.createRows(rows, keys)
     }
     function customerTable() {
-        let tbl = new Table({
+        const init = {
             page: ".app-body.customer",
             table: ".table.--customer",
             type: "normal"
-        })
+        }
         const keys = [
             {
                 name: "check-all",
@@ -318,8 +419,8 @@
                 const: null,
             },
             {
-                name: "gender",
-                html: "Giới tính",
+                name: "date_birth",
+                html: "Ngày sinh",
                 const: null,
             },
             {
@@ -335,7 +436,7 @@
             {
                 name: "password",
                 html: "Mật khẩu",
-                const: null,
+                const: "********",
             },
             {
                 name: "date_create",
@@ -363,7 +464,7 @@
                 id: 32,
                 name: "Thái Phương Nam",
                 gender: "Nam",
-                birth_date: "2001-07-10",
+                date_birth: "2001-07-10",
                 address: "Bình Định",
                 email: "thaiphuongnam1071@gmail.com",
                 password: null,
@@ -374,7 +475,7 @@
                 id: 42,
                 name: "Nguyễn Văn A",
                 gender: "Nam",
-                birth_date: "2001-07-20",
+                date_birth: "2001-07-20",
                 address: "Thành Phố Hồ Chí Minh",
                 email: "vana@gmail.com",
                 password: null,
@@ -385,7 +486,7 @@
                 id: 521,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -396,7 +497,7 @@
                 id: 522,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -407,7 +508,7 @@
                 id: 523,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -418,7 +519,7 @@
                 id: 524,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -429,7 +530,7 @@
                 id: 525,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -440,7 +541,7 @@
                 id: 526,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -451,7 +552,7 @@
                 id: 527,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -462,7 +563,7 @@
                 id: 528,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -473,7 +574,7 @@
                 id: 529,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -484,7 +585,7 @@
                 id: 5210,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -495,7 +596,7 @@
                 id: 5211,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -506,7 +607,7 @@
                 id: 5212,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -517,7 +618,7 @@
                 id: 5213,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -528,7 +629,7 @@
                 id: 5214,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -536,8 +637,7 @@
                 state: "locked",
             },
         ]
-        tbl.createRowKey(keys)
-        tbl.createRows(customers, keys)
+        new Table(init, keys, customers)
     }
     function staffTable() {
         let tbl = new Table({
@@ -617,7 +717,7 @@
                 id: 32,
                 name: "Thái Phương Nam",
                 gender: "Nam",
-                birth_date: "2001-07-10",
+                date_birth: "2001-07-10",
                 address: "Bình Định",
                 email: "thaiphuongnam1071@gmail.com",
                 password: null,
@@ -629,7 +729,7 @@
                 id: 42,
                 name: "Nguyễn Văn A",
                 gender: "Nam",
-                birth_date: "2001-07-20",
+                date_birth: "2001-07-20",
                 address: "Thành Phố Hồ Chí Minh",
                 email: "vana@gmail.com",
                 password: null,
@@ -641,7 +741,7 @@
                 id: 521,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -653,7 +753,7 @@
                 id: 522,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -665,7 +765,7 @@
                 id: 523,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -677,7 +777,7 @@
                 id: 524,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -689,7 +789,7 @@
                 id: 525,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -701,7 +801,7 @@
                 id: 526,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -713,7 +813,7 @@
                 id: 527,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -725,7 +825,7 @@
                 id: 528,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -737,7 +837,7 @@
                 id: 529,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -749,7 +849,7 @@
                 id: 5210,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -761,7 +861,7 @@
                 id: 5211,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -773,7 +873,7 @@
                 id: 5212,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -785,7 +885,7 @@
                 id: 5213,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,
@@ -797,7 +897,7 @@
                 id: 5214,
                 name: "Người dùng 1",
                 gender: "Nữ",
-                birth_date: "2004-02-01",
+                date_birth: "2004-02-01",
                 address: "Vũng Tàu",
                 email: "ttpn1@gmail.com",
                 password: null,

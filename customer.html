@@ -49,11 +49,11 @@
                         <button class="item-control-btn item-control-btn--primary js-open-form-create-btn">Thêm</button>
                         <button class="item-control-btn item-control-btn--danger js-remove-btn">Xóa</button>
                     </div>
-                    <div class="item-content">
-                        <table class="table --customer js-table">
+                    <form class="item-content js-remove-form">
+                        <table class="table --customer">
                             <!--  -->
                         </table>
-                    </div>
+                    </form>
                 </div>
             </div>
 
@@ -66,7 +66,7 @@
                 <div class="modal-body">
                     <div class="modal-body-item">
                         <label for="">ID</label>
-                        <input type="text" name="id" readonly>
+                        <input type="text" name="id">
                     </div>
                     <div class="modal-body-item">
                         <label for="">Họ và tên</label>
@@ -81,7 +81,7 @@
                     </div>
                     <div class="modal-body-item">
                         <label for="">Ngày sinh</label>
-                        <input type="date" name="birth_date">
+                        <input type="date" name="date_birth">
                     </div>
                     <div class="modal-body-item">
                         <label for="">Địa chỉ</label>
@@ -97,7 +97,7 @@
                     </div>
                     <div class="modal-body-item">
                         <label for="reassword">Nhập lại mật khẩu</label>
-                        <input type="password" name="repassword" placeholder="Nhập lại mật khẩu" disabled>
+                        <input type="password" placeholder="Nhập lại mật khẩu">
                     </div>
                     <div class="modal-body-item">
                         <label for="">Ngày lập</label>
