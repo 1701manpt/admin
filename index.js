@@ -313,23 +313,14 @@
             })
         }
 
-        getRow(id) {
-            console.log("Get row: " + id)
-        }
-
     }
     function categoryTable() {
-        const tbl = new Table({
+        const init = {
             page: ".app-body.category",
             table: ".table.--category",
             type: "normal"
-        })
+        }
         const keys = [
-            // {
-            //     name: "hehe",
-            //     html: 'test',
-            //     const: 'test',
-            // },
             {
                 name: "check-all",
                 html: '<input type="checkbox" class="js-remove-check-all">',
@@ -383,8 +374,7 @@
                 description: "đé",
             },
         ]
-        tbl.createRowKey(keys)
-        tbl.createRows(rows, keys)
+        new Table(init, keys, rows)
     }
     function customerTable() {
         const init = {
@@ -640,11 +630,11 @@
         new Table(init, keys, customers)
     }
     function staffTable() {
-        let tbl = new Table({
+        const init = {
             page: ".app-body.staff",
             table: ".table.--staff",
             type: "normal"
-        })
+        }
         const keys = [
             {
                 name: "check-all",
@@ -906,16 +896,14 @@
                 role_id: 32,
             },
         ]
-
-        tbl.createRowKey(keys)
-        tbl.createRows(staffs, keys)
+        new Table(init, keys, staffs)
     }
     function typeTable() {
-        let tbl = new Table({
+        const init = {
             page: ".app-body.type",
             table: ".table.--type",
             type: "normal"
-        })
+        }
         const keys = [
             {
                 name: "check-all",
@@ -990,15 +978,14 @@
                 description: "dép để mang",
             },
         ]
-        tbl.createRowKey(keys)
-        tbl.createRows(types, keys)
+        new Table(init, keys, types)
     }
     function productTable() {
-        let tbl = new Table({
+        const init = {
             page: ".app-body.product",
             table: ".table.--product",
             type: "normal"
-        })
+        }
         const keys = [
             {
                 name: "check-all",
@@ -1073,15 +1060,14 @@
                 description: "dép để mang",
             },
         ]
-        tbl.createRowKey(keys)
-        tbl.createRows(types, keys)
+        new Table(init, keys, types)
     }
     function orderTable() {
-        let tbl = new Table({
+        const init = {
             page: ".app-body.order",
             table: ".table.--order",
             type: "normal"
-        })
+        }
         const keys = [
             {
                 name: "check-all",
@@ -1156,15 +1142,14 @@
                 description: "dép để mang",
             },
         ]
-        tbl.createRowKey(keys)
-        tbl.createRows(types, keys)
+        new Table(init, keys, types)
     }
     function saleOffTable() {
-        let tbl = new Table({
+        const init = {
             page: ".app-body.sale_off",
             table: ".table.--sale_off",
             type: "normal"
-        })
+        }
         const keys = [
             {
                 name: "check-all",
@@ -1239,15 +1224,14 @@
                 description: "dép để mang",
             },
         ]
-        tbl.createRowKey(keys)
-        tbl.createRows(types, keys)
+        new Table(init, keys, types)
     }
     function supplierTable() {
-        let tbl = new Table({
+        const init = {
             page: ".app-body.supplier",
             table: ".table.--supplier",
             type: "normal"
-        })
+        }
         const keys = [
             {
                 name: "check-all",
@@ -1322,15 +1306,14 @@
                 description: "dép để mang",
             },
         ]
-        tbl.createRowKey(keys)
-        tbl.createRows(types, keys)
+        new Table(init, keys, types)
     }
     function roleTable() {
-        let tbl = new Table({
+        const init = {
             page: ".app-body.role",
             table: ".table.--role",
             type: "normal"
-        })
+        }
         const keys = [
             {
                 name: "check-all",
@@ -1405,8 +1388,7 @@
                 description: "dép để mang",
             },
         ]
-        tbl.createRowKey(keys)
-        tbl.createRows(types, keys)
+        new Table(init, keys, types)
     }
 
     window.addEventListener("load", () => {
